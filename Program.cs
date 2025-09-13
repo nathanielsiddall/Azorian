@@ -1,4 +1,5 @@
-using Azorian.Services;
+using Azorian.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
 /// <summary>
@@ -27,11 +28,23 @@ public class Program
         // Add MVC controllers
         builder.Services.AddControllers();
 
+        // Configure EF Core with PostgreSQL
+        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+        builder.Services.AddDbContext<AzorianContext>(options =>
+            options.UseNpgsql(connectionString));
 
         // Add OpenAPI (minimal APIs + controller discovery)
         builder.Services.AddOpenApi();
 
         var app = builder.Build();
+
+        // Ensure the database and schema exist
+        using (var scope = app.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<AzorianContext>();
+            db.Database.Migrate();
+        }
 
         if (app.Environment.IsDevelopment())
         {
