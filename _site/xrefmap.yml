@@ -89,6 +89,37 @@ references:
   isSpec: "True"
   fullName: Azorian.Controllers.WeatherForecastController.Get
   nameWithType: WeatherForecastController.Get
+- uid: Azorian.Data
+  name: Azorian.Data
+  href: api/Azorian.Data.html
+  commentId: N:Azorian.Data
+  fullName: Azorian.Data
+  nameWithType: Azorian.Data
+- uid: Azorian.Data.AzorianContext
+  name: AzorianContext
+  href: api/Azorian.Data.AzorianContext.html
+  commentId: T:Azorian.Data.AzorianContext
+  fullName: Azorian.Data.AzorianContext
+  nameWithType: AzorianContext
+- uid: Azorian.Data.AzorianContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Azorian.Data.AzorianContext})
+  name: AzorianContext(DbContextOptions<AzorianContext>)
+  href: api/Azorian.Data.AzorianContext.html#Azorian_Data_AzorianContext__ctor_Microsoft_EntityFrameworkCore_DbContextOptions_Azorian_Data_AzorianContext__
+  commentId: M:Azorian.Data.AzorianContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Azorian.Data.AzorianContext})
+  name.vb: New(DbContextOptions(Of AzorianContext))
+  fullName: Azorian.Data.AzorianContext.AzorianContext(Microsoft.EntityFrameworkCore.DbContextOptions<Azorian.Data.AzorianContext>)
+  fullName.vb: Azorian.Data.AzorianContext.New(Microsoft.EntityFrameworkCore.DbContextOptions(Of Azorian.Data.AzorianContext))
+  nameWithType: AzorianContext.AzorianContext(DbContextOptions<AzorianContext>)
+  nameWithType.vb: AzorianContext.New(DbContextOptions(Of AzorianContext))
+- uid: Azorian.Data.AzorianContext.#ctor*
+  name: AzorianContext
+  href: api/Azorian.Data.AzorianContext.html#Azorian_Data_AzorianContext__ctor_
+  commentId: Overload:Azorian.Data.AzorianContext.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Azorian.Data.AzorianContext.AzorianContext
+  fullName.vb: Azorian.Data.AzorianContext.New
+  nameWithType: AzorianContext.AzorianContext
+  nameWithType.vb: AzorianContext.New
 - uid: Azorian.Models
   name: Azorian.Models
   href: api/Azorian.Models.html

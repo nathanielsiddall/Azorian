@@ -11,6 +11,16 @@
       }
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "ManagedReference",
       "source_relative_path": "api/Azorian.Controllers.TextController.yml",
       "output": {
@@ -50,6 +60,34 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Azorian.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Data.AzorianContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Data.AzorianContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Data.AzorianContext",
+      "Summary": "<p sourcefile=\"api/Azorian.Data.AzorianContext.yml\" sourcestartlinenumber=\"1\">Entity Framework database context for the Azorian application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Data",
       "Summary": null
     },
     {

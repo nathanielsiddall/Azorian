@@ -1,4 +1,9 @@
 {
+  "README.html": {
+    "href": "README.html",
+    "title": "Azorian | Azorian",
+    "summary": "Azorian"
+  },
   "api/Azorian.Controllers.TextController.html": {
     "href": "api/Azorian.Controllers.TextController.html",
     "title": "Class TextController | Azorian",
@@ -12,7 +17,17 @@
   "api/Azorian.Controllers.html": {
     "href": "api/Azorian.Controllers.html",
     "title": "Namespace Azorian.Controllers | Azorian",
-    "summary": "Namespace Azorian.Controllers Classes TextController API controller for text processing operations. WeatherForecastController Provides HTTP endpoints for retrieving weather forecast data."
+    "summary": "Namespace Azorian.Controllers Classes WeatherForecastController Provides HTTP endpoints for retrieving weather forecast data."
+  },
+  "api/Azorian.Data.AzorianContext.html": {
+    "href": "api/Azorian.Data.AzorianContext.html",
+    "title": "Class AzorianContext | Azorian",
+    "summary": "Class AzorianContext Namespace Azorian.Data Assembly Azorian.dll Entity Framework database context for the Azorian application. public class AzorianContext : DbContext, IInfrastructure<IServiceProvider>, IDbContextDependencies, IDbSetCache, IDbContextPoolable, IResettableService, IDisposable, IAsyncDisposable Inheritance object DbContext AzorianContext Implements IInfrastructure<IServiceProvider> IDbContextDependencies IDbSetCache IDbContextPoolable IResettableService IDisposable IAsyncDisposable Inherited Members DbContext.Set<TEntity>() DbContext.Set<TEntity>(string) DbContext.OnConfiguring(DbContextOptionsBuilder) DbContext.ConfigureConventions(ModelConfigurationBuilder) DbContext.OnModelCreating(ModelBuilder) DbContext.SaveChanges() DbContext.SaveChanges(bool) DbContext.SaveChangesAsync(CancellationToken) DbContext.SaveChangesAsync(bool, CancellationToken) DbContext.Dispose() DbContext.DisposeAsync() DbContext.Entry<TEntity>(TEntity) DbContext.Entry(object) DbContext.Add<TEntity>(TEntity) DbContext.AddAsync<TEntity>(TEntity, CancellationToken) DbContext.Attach<TEntity>(TEntity) DbContext.Update<TEntity>(TEntity) DbContext.Remove<TEntity>(TEntity) DbContext.Add(object) DbContext.AddAsync(object, CancellationToken) DbContext.Attach(object) DbContext.Update(object) DbContext.Remove(object) DbContext.AddRange(params object[]) DbContext.AddRangeAsync(params object[]) DbContext.AttachRange(params object[]) DbContext.UpdateRange(params object[]) DbContext.RemoveRange(params object[]) DbContext.AddRange(IEnumerable<object>) DbContext.AddRangeAsync(IEnumerable<object>, CancellationToken) DbContext.AttachRange(IEnumerable<object>) DbContext.UpdateRange(IEnumerable<object>) DbContext.RemoveRange(IEnumerable<object>) DbContext.Find(Type, params object[]) DbContext.FindAsync(Type, params object[]) DbContext.FindAsync(Type, object[], CancellationToken) DbContext.Find<TEntity>(params object[]) DbContext.FindAsync<TEntity>(params object[]) DbContext.FindAsync<TEntity>(object[], CancellationToken) DbContext.FromExpression<TResult>(Expression<Func<IQueryable<TResult>>>) DbContext.Database DbContext.ChangeTracker DbContext.Model DbContext.ContextId DbContext.SavingChanges DbContext.SavedChanges DbContext.SaveChangesFailed object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors AzorianContext(DbContextOptions<AzorianContext>) Initializes a new instance of the AzorianContext class. public AzorianContext(DbContextOptions<AzorianContext> options) Parameters options DbContextOptions<AzorianContext> The options to configure the context."
+  },
+  "api/Azorian.Data.html": {
+    "href": "api/Azorian.Data.html",
+    "title": "Namespace Azorian.Data | Azorian",
+    "summary": "Namespace Azorian.Data Classes AzorianContext Entity Framework database context for the Azorian application."
   },
   "api/Azorian.Models.ReverseTextRequest.html": {
     "href": "api/Azorian.Models.ReverseTextRequest.html",

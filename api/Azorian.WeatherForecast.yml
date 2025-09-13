@@ -17,8 +17,12 @@ items:
   fullName: Azorian.WeatherForecast
   type: Class
   source:
+    remote:
+      path: WeatherForecast.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: WeatherForecast
-    path: C:\git\Azorian\WeatherForecast.cs
+    path: WeatherForecast.cs
     startLine: 2
   assemblies:
   - Azorian
@@ -48,8 +52,12 @@ items:
   fullName: Azorian.WeatherForecast.Date
   type: Property
   source:
+    remote:
+      path: WeatherForecast.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: Date
-    path: C:\git\Azorian\WeatherForecast.cs
+    path: WeatherForecast.cs
     startLine: 4
   assemblies:
   - Azorian
@@ -73,8 +81,12 @@ items:
   fullName: Azorian.WeatherForecast.TemperatureC
   type: Property
   source:
+    remote:
+      path: WeatherForecast.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: TemperatureC
-    path: C:\git\Azorian\WeatherForecast.cs
+    path: WeatherForecast.cs
     startLine: 6
   assemblies:
   - Azorian
@@ -98,8 +110,12 @@ items:
   fullName: Azorian.WeatherForecast.TemperatureF
   type: Property
   source:
+    remote:
+      path: WeatherForecast.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: TemperatureF
-    path: C:\git\Azorian\WeatherForecast.cs
+    path: WeatherForecast.cs
     startLine: 8
   assemblies:
   - Azorian
@@ -123,8 +139,12 @@ items:
   fullName: Azorian.WeatherForecast.Summary
   type: Property
   source:
+    remote:
+      path: WeatherForecast.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: Summary
-    path: C:\git\Azorian\WeatherForecast.cs
+    path: WeatherForecast.cs
     startLine: 10
   assemblies:
   - Azorian

@@ -4,7 +4,6 @@ items:
   commentId: N:Azorian.Controllers
   id: Azorian.Controllers
   children:
-  - Azorian.Controllers.TextController
   - Azorian.Controllers.WeatherForecastController
   langs:
   - csharp
@@ -16,12 +15,6 @@ items:
   assemblies:
   - Azorian
 references:
-- uid: Azorian.Controllers.TextController
-  commentId: T:Azorian.Controllers.TextController
-  href: Azorian.Controllers.TextController.html
-  name: TextController
-  nameWithType: TextController
-  fullName: Azorian.Controllers.TextController
 - uid: Azorian.Controllers.WeatherForecastController
   commentId: T:Azorian.Controllers.WeatherForecastController
   href: Azorian.Controllers.WeatherForecastController.html
