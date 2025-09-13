@@ -1,4 +1,5 @@
 using Azorian.Data;
+using Azorian.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
@@ -27,6 +28,11 @@ public class Program
 
         // Add MVC controllers
         builder.Services.AddControllers();
+
+        // Register application services
+        builder.Services.AddScoped<RoleService>();
+        builder.Services.AddScoped<UserService>();
+        builder.Services.AddAuthorization();
 
         // Configure EF Core with PostgreSQL
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
