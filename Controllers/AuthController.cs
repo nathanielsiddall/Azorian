@@ -1,81 +1,92 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using Azorian.Data;
 using Azorian.Models;
 using Azorian.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
 
 namespace Azorian.Controllers;
 
 /// <summary>
-/// Provides endpoints for user registration and authentication.
+/// Authentication endpoints for registering and logging in users.
 /// </summary>
 [ApiController]
-[Route("auth")]
+[Route("1/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly IUserService _userService;
-    private readonly IConfiguration _configuration;
+    private readonly AzorianContext _context;
+    private readonly TokenService _tokenService;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="AuthController"/> class.
     /// </summary>
-    /// <param name="userService">Service used to manage users.</param>
-    /// <param name="configuration">Configuration for retrieving JWT settings.</param>
-    public AuthController(IUserService userService, IConfiguration configuration)
+    /// <param name="context">Database context.</param>
+    /// <param name="tokenService">JWT generation service.</param>
+    public AuthController(AzorianContext context, TokenService tokenService)
     {
-        _userService = userService;
-        _configuration = configuration;
+        _context = context;
+        _tokenService = tokenService;
     }
 
     /// <summary>
-    /// Registers a new user account.
+    /// Registers a new user and returns a JWT.
     /// </summary>
-    /// <param name="credentials">The desired username and password.</param>
-    /// <returns>The created user information.</returns>
+    /// <param name="request">Registration request payload.</param>
+    /// <returns>JWT for the created user.</returns>
     [HttpPost("register")]
     [AllowAnonymous]
-    public ActionResult<UserDto> Register(UserCredentials credentials)
+    [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<string>> Register(RegisterRequest request)
     {
-        var user = _userService.Create(credentials);
-        return Ok(ToDto(user));
+        if (await _context.Users.AnyAsync(u => u.Email == request.Email))
+        {
+            return BadRequest("Email already in use");
+        }
+
+        var user = new User
+        {
+            Id = Guid.NewGuid(),
+            UserName = request.UserName,
+            Email = request.Email,
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            CreatedAt = DateTime.UtcNow,
+            Role = "User",
+            Status = UserStatus.Active
+        };
+
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+
+        var token = _tokenService.GenerateToken(user);
+        return Ok(token);
     }
 
     /// <summary>
-    /// Authenticates a user and returns a JWT token.
+    /// Authenticates a user and returns a JWT.
     /// </summary>
-    /// <param name="credentials">The username and password.</param>
-    /// <returns>A JWT bearer token if authentication succeeds.</returns>
+    /// <param name="request">Login request payload.</param>
+    /// <returns>JWT for the authenticated user.</returns>
     [HttpPost("login")]
     [AllowAnonymous]
-    public ActionResult<string> Login(UserCredentials credentials)
+    [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<ActionResult<string>> Login(LoginRequest request)
     {
-        var user = _userService.Authenticate(credentials);
-        if (user is null)
+        var user = await _context.Users.SingleOrDefaultAsync(u => u.Email == request.Email);
+        if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
         {
-            return Unauthorized();
+            return Unauthorized("Invalid credentials");
         }
 
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]!);
-        var tokenDescriptor = new SecurityTokenDescriptor
+        if (user.Status == UserStatus.Banned)
         {
-            Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) }),
-            Expires = DateTime.UtcNow.AddHours(1),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-        };
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return Ok(tokenHandler.WriteToken(token));
-    }
+            return Forbid();
+        }
 
-    private static UserDto ToDto(User user) => new()
-    {
-        Id = user.Id,
-        Username = user.Username,
-        IsSuspended = user.IsSuspended,
-        IsBanned = user.IsBanned
-    };
+        var token = _tokenService.GenerateToken(user);
+        return Ok(token);
+    }
 }

@@ -4,8 +4,12 @@ items:
   commentId: N:Azorian.Models
   id: Azorian.Models
   children:
-  - Azorian.Models.ReverseTextRequest
-  - Azorian.Models.ReverseTextResponse
+  - Azorian.Models.LoginRequest
+  - Azorian.Models.RegisterRequest
+  - Azorian.Models.User
+  - Azorian.Models.UserCredentials
+  - Azorian.Models.UserDto
+  - Azorian.Models.UserStatus
   langs:
   - csharp
   - vb
@@ -16,20 +20,47 @@ items:
   assemblies:
   - Azorian
 references:
-- uid: Azorian.Models.ReverseTextRequest
-  commentId: T:Azorian.Models.ReverseTextRequest
+- uid: Azorian.Models.LoginRequest
+  commentId: T:Azorian.Models.LoginRequest
   parent: Azorian.Models
-  href: Azorian.Models.ReverseTextRequest.html
-  name: ReverseTextRequest
-  nameWithType: ReverseTextRequest
-  fullName: Azorian.Models.ReverseTextRequest
-- uid: Azorian.Models.ReverseTextResponse
-  commentId: T:Azorian.Models.ReverseTextResponse
+  href: Azorian.Models.LoginRequest.html
+  name: LoginRequest
+  nameWithType: LoginRequest
+  fullName: Azorian.Models.LoginRequest
+- uid: Azorian.Models.RegisterRequest
+  commentId: T:Azorian.Models.RegisterRequest
   parent: Azorian.Models
-  href: Azorian.Models.ReverseTextResponse.html
-  name: ReverseTextResponse
-  nameWithType: ReverseTextResponse
-  fullName: Azorian.Models.ReverseTextResponse
+  href: Azorian.Models.RegisterRequest.html
+  name: RegisterRequest
+  nameWithType: RegisterRequest
+  fullName: Azorian.Models.RegisterRequest
+- uid: Azorian.Models.User
+  commentId: T:Azorian.Models.User
+  parent: Azorian.Models
+  href: Azorian.Models.User.html
+  name: User
+  nameWithType: User
+  fullName: Azorian.Models.User
+- uid: Azorian.Models.UserCredentials
+  commentId: T:Azorian.Models.UserCredentials
+  parent: Azorian.Models
+  href: Azorian.Models.UserCredentials.html
+  name: UserCredentials
+  nameWithType: UserCredentials
+  fullName: Azorian.Models.UserCredentials
+- uid: Azorian.Models.UserDto
+  commentId: T:Azorian.Models.UserDto
+  href: Azorian.Models.UserDto.html
+  name: UserDto
+  nameWithType: UserDto
+  fullName: Azorian.Models.UserDto
+- uid: Azorian.Models.UserStatus
+  commentId: T:Azorian.Models.UserStatus
+  parent: Azorian.Models
+  href: Azorian.Models.UserStatus.html
+  name: UserStatus
+  nameWithType: UserStatus
+  fullName: Azorian.Models.UserStatus
 - uid: Azorian.Models
   commentId: N:Azorian.Models
   href: Azorian.html

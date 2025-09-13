@@ -1,34 +1,52 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Azorian.Models;
 
 /// <summary>
-/// Represents an application user.
+/// Application user entity.
 /// </summary>
 public class User
 {
-    /// <summary>
-    /// Gets or sets the unique identifier for the user.
-    /// </summary>
+    /// <summary>Primary identifier.</summary>
     public Guid Id { get; set; }
 
-    /// <summary>
-    /// Gets or sets the user's display name.
-    /// </summary>
-    public string Username { get; set; } = string.Empty;
+    /// <summary>Unique username.</summary>
+    [Required]
+    [MaxLength(100)]
+    public string UserName { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Gets or sets the hashed password for authentication.
-    /// </summary>
+    /// <summary>User email address.</summary>
+    [Required]
+    [EmailAddress]
+    public string Email { get; set; } = string.Empty;
+
+    /// <summary>Hashed password.</summary>
+    [Required]
     public string PasswordHash { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Gets or sets a value indicating whether the user is currently suspended.
-    /// Suspended users are temporarily prevented from accessing the system.
-    /// </summary>
-    public bool IsSuspended { get; set; }
+    /// <summary>User first name.</summary>
+    [MaxLength(100)]
+    public string FirstName { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Gets or sets a value indicating whether the user is permanently banned.
-    /// Banned users cannot authenticate or access the API.
-    /// </summary>
+    /// <summary>User last name.</summary>
+    [MaxLength(100)]
+    public string LastName { get; set; } = string.Empty;
+
+    /// <summary>Date the user was created.</summary>
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    /// <summary>Date the user was last updated.</summary>
+    public DateTime? UpdatedAt { get; set; }
+
+    /// <summary>User role for authorization.</summary>
+    [MaxLength(50)]
+    public string Role { get; set; } = "User";
+
+    /// <summary>Account status.</summary>
+    public UserStatus Status { get; set; } = UserStatus.Active;
+
+    /*TODO: update the isSuspended field so that it's a date so0 that when we create the suspension functuionality
+    is made we can just run a check on the date and see if the suspension is over yet.*/
+    public bool IsSuspended { get; set; }
     public bool IsBanned { get; set; }
 }

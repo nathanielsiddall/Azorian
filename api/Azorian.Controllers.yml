@@ -4,7 +4,8 @@ items:
   commentId: N:Azorian.Controllers
   id: Azorian.Controllers
   children:
-  - Azorian.Controllers.TextController
+  - Azorian.Controllers.AuthController
+  - Azorian.Controllers.UsersController
   - Azorian.Controllers.WeatherForecastController
   langs:
   - csharp
@@ -16,12 +17,18 @@ items:
   assemblies:
   - Azorian
 references:
-- uid: Azorian.Controllers.TextController
-  commentId: T:Azorian.Controllers.TextController
-  href: Azorian.Controllers.TextController.html
-  name: TextController
-  nameWithType: TextController
-  fullName: Azorian.Controllers.TextController
+- uid: Azorian.Controllers.AuthController
+  commentId: T:Azorian.Controllers.AuthController
+  href: Azorian.Controllers.AuthController.html
+  name: AuthController
+  nameWithType: AuthController
+  fullName: Azorian.Controllers.AuthController
+- uid: Azorian.Controllers.UsersController
+  commentId: T:Azorian.Controllers.UsersController
+  href: Azorian.Controllers.UsersController.html
+  name: UsersController
+  nameWithType: UsersController
+  fullName: Azorian.Controllers.UsersController
 - uid: Azorian.Controllers.WeatherForecastController
   commentId: T:Azorian.Controllers.WeatherForecastController
   href: Azorian.Controllers.WeatherForecastController.html

@@ -11,27 +11,65 @@ items:
   name: Azorian.Controllers
   type: Namespace
   items:
-  - uid: Azorian.Controllers.TextController
-    name: TextController
+  - uid: Azorian.Controllers.AuthController
+    name: AuthController
+    type: Class
+  - uid: Azorian.Controllers.UsersController
+    name: UsersController
     type: Class
   - uid: Azorian.Controllers.WeatherForecastController
     name: WeatherForecastController
+    type: Class
+- uid: Azorian.Data
+  name: Azorian.Data
+  type: Namespace
+  items:
+  - uid: Azorian.Data.AzorianContext
+    name: AzorianContext
+    type: Class
+- uid: Azorian.Data.Migrations
+  name: Azorian.Data.Migrations
+  type: Namespace
+  items:
+  - uid: Azorian.Data.Migrations.AddBanSuspendFields
+    name: AddBanSuspendFields
+    type: Class
+  - uid: Azorian.Data.Migrations.CreateUsers
+    name: CreateUsers
     type: Class
 - uid: Azorian.Models
   name: Azorian.Models
   type: Namespace
   items:
-  - uid: Azorian.Models.ReverseTextRequest
-    name: ReverseTextRequest
+  - uid: Azorian.Models.LoginRequest
+    name: LoginRequest
     type: Class
-  - uid: Azorian.Models.ReverseTextResponse
-    name: ReverseTextResponse
+  - uid: Azorian.Models.RegisterRequest
+    name: RegisterRequest
     type: Class
+  - uid: Azorian.Models.User
+    name: User
+    type: Class
+  - uid: Azorian.Models.UserCredentials
+    name: UserCredentials
+    type: Class
+  - uid: Azorian.Models.UserDto
+    name: UserDto
+    type: Class
+  - uid: Azorian.Models.UserStatus
+    name: UserStatus
+    type: Enum
 - uid: Azorian.Services
   name: Azorian.Services
   type: Namespace
   items:
-  - uid: Azorian.Services.TextProcessor
-    name: TextProcessor
+  - uid: Azorian.Services.IUserService
+    name: IUserService
+    type: Interface
+  - uid: Azorian.Services.InMemoryUserService
+    name: InMemoryUserService
+    type: Class
+  - uid: Azorian.Services.TokenService
+    name: TokenService
     type: Class
 memberLayout: SamePage

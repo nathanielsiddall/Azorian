@@ -1,5 +1,7 @@
+using Azorian.Data;
 using Azorian.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -18,32 +20,6 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add application services
-        builder.Services.AddSingleton<IUserService, InMemoryUserService>();
-
-        // Configure JWT authentication
-        var jwtKey = builder.Configuration["Jwt:Key"] ?? "ChangeThisSecretKey";
-        var key = Encoding.ASCII.GetBytes(jwtKey);
-
-        builder.Services.AddAuthentication(options =>
-        {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }).AddJwtBearer(options =>
-        {
-            options.RequireHttpsMetadata = false;
-            options.SaveToken = true;
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false,
-                ValidateAudience = false
-            };
-        });
-
-        builder.Services.AddAuthorization();
-
         // Add OpenAPI/Swagger services
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(c =>
@@ -56,10 +32,47 @@ public class Program
         // Add MVC controllers
         builder.Services.AddControllers();
 
+        // Configure authentication and authorization
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+                };
+            });
+        builder.Services.AddAuthorization();
+        builder.Services.AddScoped<TokenService>();
+
+        // Configure EF Core with PostgreSQL
+        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+        builder.Services.AddDbContext<AzorianContext>(options =>
+            options.UseNpgsql(connectionString));
+
+        // Add OpenAPI (minimal APIs + controller discovery)
+        builder.Services.AddOpenApi();
+
         var app = builder.Build();
+
+        // Ensure the database and schema exist
+        using (var scope = app.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<AzorianContext>();
+            db.Database.Migrate();
+        }
 
         if (app.Environment.IsDevelopment())
         {
+            // Map OpenAPI definition endpoint (v1 by default)
+            app.MapOpenApi();
+
             // Swagger middleware for interactive docs
             app.UseSwagger();
             app.UseSwaggerUI();
@@ -85,7 +98,6 @@ public class Program
             app.UseHttpsRedirection();
         }
 
-        app.UsePathBase("/1");
         app.UseAuthentication();
         app.UseAuthorization();
 
