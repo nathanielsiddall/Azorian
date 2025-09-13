@@ -15,8 +15,12 @@ items:
   fullName: Azorian.Controllers.WeatherForecastController
   type: Class
   source:
+    remote:
+      path: Controllers/WeatherForecastController.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: WeatherForecastController
-    path: C:\git\Azorian\Controllers\WeatherForecastController.cs
+    path: Controllers/WeatherForecastController.cs
     startLine: 15
   assemblies:
   - Azorian
@@ -255,8 +259,12 @@ items:
   fullName: Azorian.Controllers.WeatherForecastController.WeatherForecastController(Microsoft.Extensions.Logging.ILogger<Azorian.Controllers.WeatherForecastController>)
   type: Constructor
   source:
+    remote:
+      path: Controllers/WeatherForecastController.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: .ctor
-    path: C:\git\Azorian\Controllers\WeatherForecastController.cs
+    path: Controllers/WeatherForecastController.cs
     startLine: 52
   assemblies:
   - Azorian
@@ -286,8 +294,12 @@ items:
   fullName: Azorian.Controllers.WeatherForecastController.Get()
   type: Method
   source:
+    remote:
+      path: Controllers/WeatherForecastController.cs
+      branch: DB-setup
+      repo: git@github.com:nathanielsiddall/Azorian.git
     id: Get
-    path: C:\git\Azorian\Controllers\WeatherForecastController.cs
+    path: Controllers/WeatherForecastController.cs
     startLine: 87
   assemblies:
   - Azorian

@@ -11,27 +11,14 @@ items:
   name: Azorian.Controllers
   type: Namespace
   items:
-  - uid: Azorian.Controllers.TextController
-    name: TextController
-    type: Class
   - uid: Azorian.Controllers.WeatherForecastController
     name: WeatherForecastController
     type: Class
-- uid: Azorian.Models
-  name: Azorian.Models
+- uid: Azorian.Data
+  name: Azorian.Data
   type: Namespace
   items:
-  - uid: Azorian.Models.ReverseTextRequest
-    name: ReverseTextRequest
-    type: Class
-  - uid: Azorian.Models.ReverseTextResponse
-    name: ReverseTextResponse
-    type: Class
-- uid: Azorian.Services
-  name: Azorian.Services
-  type: Namespace
-  items:
-  - uid: Azorian.Services.TextProcessor
-    name: TextProcessor
+  - uid: Azorian.Data.AzorianContext
+    name: AzorianContext
     type: Class
 memberLayout: SamePage
