@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: Azorian.Services
+  commentId: N:Azorian.Services
+  id: Azorian.Services
+  children:
+  - Azorian.Services.TextProcessor
+  langs:
+  - csharp
+  - vb
+  name: Azorian.Services
+  nameWithType: Azorian.Services
+  fullName: Azorian.Services
+  type: Namespace
+  assemblies:
+  - Azorian
+references:
+- uid: Azorian.Services.TextProcessor
+  commentId: T:Azorian.Services.TextProcessor
+  parent: Azorian.Services
+  href: Azorian.Services.TextProcessor.html
+  name: TextProcessor
+  nameWithType: TextProcessor
+  fullName: Azorian.Services.TextProcessor
+- uid: Azorian.Services
+  commentId: N:Azorian.Services
+  href: Azorian.html
+  name: Azorian.Services
+  nameWithType: Azorian.Services
+  fullName: Azorian.Services
+  spec.csharp:
+  - uid: Azorian
+    name: Azorian
+    href: Azorian.html
+  - name: .
+  - uid: Azorian.Services
+    name: Services
+    href: Azorian.Services.html
+  spec.vb:
+  - uid: Azorian
+    name: Azorian
+    href: Azorian.html
+  - name: .
+  - uid: Azorian.Services
+    name: Services
+    href: Azorian.Services.html

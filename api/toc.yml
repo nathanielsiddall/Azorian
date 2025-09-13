@@ -1,0 +1,37 @@
+### YamlMime:TableOfContent
+items:
+- uid: Azorian
+  name: Azorian
+  type: Namespace
+  items:
+  - uid: Azorian.WeatherForecast
+    name: WeatherForecast
+    type: Class
+- uid: Azorian.Controllers
+  name: Azorian.Controllers
+  type: Namespace
+  items:
+  - uid: Azorian.Controllers.TextController
+    name: TextController
+    type: Class
+  - uid: Azorian.Controllers.WeatherForecastController
+    name: WeatherForecastController
+    type: Class
+- uid: Azorian.Models
+  name: Azorian.Models
+  type: Namespace
+  items:
+  - uid: Azorian.Models.ReverseTextRequest
+    name: ReverseTextRequest
+    type: Class
+  - uid: Azorian.Models.ReverseTextResponse
+    name: ReverseTextResponse
+    type: Class
+- uid: Azorian.Services
+  name: Azorian.Services
+  type: Namespace
+  items:
+  - uid: Azorian.Services.TextProcessor
+    name: TextProcessor
+    type: Class
+memberLayout: SamePage

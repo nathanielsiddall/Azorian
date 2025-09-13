@@ -1,0 +1,7 @@
+﻿services:
+  azorian:
+    image: azorian
+    build:
+      context: .
+      dockerfile: Dockerfile
+

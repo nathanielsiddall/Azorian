@@ -1,0 +1,23 @@
+{
+  "Azorian": "Azorian.yml",
+  "Azorian.Controllers": "Azorian.Controllers.yml",
+  "Azorian.Controllers.TextController": "Azorian.Controllers.TextController.yml",
+  "Azorian.Controllers.TextController.#ctor(Azorian.Services.TextProcessor)": "Azorian.Controllers.TextController.yml",
+  "Azorian.Controllers.TextController.Reverse(Azorian.Models.ReverseTextRequest)": "Azorian.Controllers.TextController.yml",
+  "Azorian.Controllers.WeatherForecastController": "Azorian.Controllers.WeatherForecastController.yml",
+  "Azorian.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{Azorian.Controllers.WeatherForecastController})": "Azorian.Controllers.WeatherForecastController.yml",
+  "Azorian.Controllers.WeatherForecastController.Get": "Azorian.Controllers.WeatherForecastController.yml",
+  "Azorian.Models": "Azorian.Models.yml",
+  "Azorian.Models.ReverseTextRequest": "Azorian.Models.ReverseTextRequest.yml",
+  "Azorian.Models.ReverseTextRequest.Text": "Azorian.Models.ReverseTextRequest.yml",
+  "Azorian.Models.ReverseTextResponse": "Azorian.Models.ReverseTextResponse.yml",
+  "Azorian.Models.ReverseTextResponse.Reversed": "Azorian.Models.ReverseTextResponse.yml",
+  "Azorian.Services": "Azorian.Services.yml",
+  "Azorian.Services.TextProcessor": "Azorian.Services.TextProcessor.yml",
+  "Azorian.Services.TextProcessor.Reverse(System.String)": "Azorian.Services.TextProcessor.yml",
+  "Azorian.WeatherForecast": "Azorian.WeatherForecast.yml",
+  "Azorian.WeatherForecast.Date": "Azorian.WeatherForecast.yml",
+  "Azorian.WeatherForecast.Summary": "Azorian.WeatherForecast.yml",
+  "Azorian.WeatherForecast.TemperatureC": "Azorian.WeatherForecast.yml",
+  "Azorian.WeatherForecast.TemperatureF": "Azorian.WeatherForecast.yml"
+}

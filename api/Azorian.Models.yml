@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: Azorian.Models
+  commentId: N:Azorian.Models
+  id: Azorian.Models
+  children:
+  - Azorian.Models.ReverseTextRequest
+  - Azorian.Models.ReverseTextResponse
+  langs:
+  - csharp
+  - vb
+  name: Azorian.Models
+  nameWithType: Azorian.Models
+  fullName: Azorian.Models
+  type: Namespace
+  assemblies:
+  - Azorian
+references:
+- uid: Azorian.Models.ReverseTextRequest
+  commentId: T:Azorian.Models.ReverseTextRequest
+  parent: Azorian.Models
+  href: Azorian.Models.ReverseTextRequest.html
+  name: ReverseTextRequest
+  nameWithType: ReverseTextRequest
+  fullName: Azorian.Models.ReverseTextRequest
+- uid: Azorian.Models.ReverseTextResponse
+  commentId: T:Azorian.Models.ReverseTextResponse
+  parent: Azorian.Models
+  href: Azorian.Models.ReverseTextResponse.html
+  name: ReverseTextResponse
+  nameWithType: ReverseTextResponse
+  fullName: Azorian.Models.ReverseTextResponse
+- uid: Azorian.Models
+  commentId: N:Azorian.Models
+  href: Azorian.html
+  name: Azorian.Models
+  nameWithType: Azorian.Models
+  fullName: Azorian.Models
+  spec.csharp:
+  - uid: Azorian
+    name: Azorian
+    href: Azorian.html
+  - name: .
+  - uid: Azorian.Models
+    name: Models
+    href: Azorian.Models.html
+  spec.vb:
+  - uid: Azorian
+    name: Azorian
+    href: Azorian.html
+  - name: .
+  - uid: Azorian.Models
+    name: Models
+    href: Azorian.Models.html

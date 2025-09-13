@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Azorian
+  commentId: N:Azorian
+  id: Azorian
+  children:
+  - Azorian.WeatherForecast
+  langs:
+  - csharp
+  - vb
+  name: Azorian
+  nameWithType: Azorian
+  fullName: Azorian
+  type: Namespace
+  assemblies:
+  - Azorian
+references:
+- uid: Azorian.WeatherForecast
+  commentId: T:Azorian.WeatherForecast
+  href: Azorian.WeatherForecast.html
+  name: WeatherForecast
+  nameWithType: WeatherForecast
+  fullName: Azorian.WeatherForecast

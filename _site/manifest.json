@@ -1,0 +1,228 @@
+{
+  "source_base_path": "C:/git/Azorian",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Controllers.TextController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Controllers.TextController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Controllers.TextController",
+      "Summary": "<p sourcefile=\"api/Azorian.Controllers.TextController.yml\" sourcestartlinenumber=\"1\">API controller for text processing operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Controllers.WeatherForecastController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Controllers.WeatherForecastController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Controllers.WeatherForecastController",
+      "Summary": "<p sourcefile=\"api/Azorian.Controllers.WeatherForecastController.yml\" sourcestartlinenumber=\"1\">Provides HTTP endpoints for retrieving weather forecast data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.ReverseTextRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.ReverseTextRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.ReverseTextRequest",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.ReverseTextRequest.yml\" sourcestartlinenumber=\"1\">Request payload for text reversal.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.ReverseTextResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.ReverseTextResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.ReverseTextResponse",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.ReverseTextResponse.yml\" sourcestartlinenumber=\"1\">Response payload containing reversed text.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Services.TextProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Services.TextProcessor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Services.TextProcessor",
+      "Summary": "<p sourcefile=\"api/Azorian.Services.TextProcessor.yml\" sourcestartlinenumber=\"1\">Provides text manipulation utilities.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.WeatherForecast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.WeatherForecast.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.WeatherForecast",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
