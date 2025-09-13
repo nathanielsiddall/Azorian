@@ -1,5 +1,8 @@
 using Azorian.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 /// <summary>
 /// Entry point for the Azorian web application.
@@ -15,6 +18,32 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Add application services
+        builder.Services.AddSingleton<IUserService, InMemoryUserService>();
+
+        // Configure JWT authentication
+        var jwtKey = builder.Configuration["Jwt:Key"] ?? "ChangeThisSecretKey";
+        var key = Encoding.ASCII.GetBytes(jwtKey);
+
+        builder.Services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(options =>
+        {
+            options.RequireHttpsMetadata = false;
+            options.SaveToken = true;
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            };
+        });
+
+        builder.Services.AddAuthorization();
+
         // Add OpenAPI/Swagger services
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(c =>
@@ -27,17 +56,10 @@ public class Program
         // Add MVC controllers
         builder.Services.AddControllers();
 
-
-        // Add OpenAPI (minimal APIs + controller discovery)
-        builder.Services.AddOpenApi();
-
         var app = builder.Build();
 
         if (app.Environment.IsDevelopment())
         {
-            // Map OpenAPI definition endpoint (v1 by default)
-            app.MapOpenApi();
-
             // Swagger middleware for interactive docs
             app.UseSwagger();
             app.UseSwaggerUI();
@@ -63,6 +85,8 @@ public class Program
             app.UseHttpsRedirection();
         }
 
+        app.UsePathBase("/1");
+        app.UseAuthentication();
         app.UseAuthorization();
 
         // Map attribute-routed controllers
