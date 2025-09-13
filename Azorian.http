@@ -1,6 +1,29 @@
-@Azorian_HostAddress = http://localhost:5197
+@Azorian_HostAddress = http://localhost:5197/1
 
-GET {{Azorian_HostAddress}}/weatherforecast/
+### Register a user
+POST {{Azorian_HostAddress}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "demo",
+  "password": "Password123!"
+}
+
+### Authenticate
+POST {{Azorian_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "demo",
+  "password": "Password123!"
+}
+
+### List users (requires Authorization header with Bearer token)
+GET {{Azorian_HostAddress}}/users
+Accept: application/json
+
+### Weather forecast
+GET {{Azorian_HostAddress}}/weatherforecast
 Accept: application/json
 
 ###
