@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: WeatherForecast.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: WeatherForecast
     path: WeatherForecast.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: WeatherForecast.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: Date
     path: WeatherForecast.cs
@@ -83,7 +83,7 @@ items:
   source:
     remote:
       path: WeatherForecast.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: TemperatureC
     path: WeatherForecast.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: WeatherForecast.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: TemperatureF
     path: WeatherForecast.cs
@@ -141,7 +141,7 @@ items:
   source:
     remote:
       path: WeatherForecast.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: Summary
     path: WeatherForecast.cs

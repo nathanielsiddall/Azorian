@@ -4,7 +4,9 @@ items:
   commentId: N:Azorian.Services
   id: Azorian.Services
   children:
-  - Azorian.Services.TextProcessor
+  - Azorian.Services.IUserService
+  - Azorian.Services.InMemoryUserService
+  - Azorian.Services.TokenService
   langs:
   - csharp
   - vb
@@ -15,13 +17,26 @@ items:
   assemblies:
   - Azorian
 references:
-- uid: Azorian.Services.TextProcessor
-  commentId: T:Azorian.Services.TextProcessor
+- uid: Azorian.Services.InMemoryUserService
+  commentId: T:Azorian.Services.InMemoryUserService
+  href: Azorian.Services.InMemoryUserService.html
+  name: InMemoryUserService
+  nameWithType: InMemoryUserService
+  fullName: Azorian.Services.InMemoryUserService
+- uid: Azorian.Services.IUserService
+  commentId: T:Azorian.Services.IUserService
   parent: Azorian.Services
-  href: Azorian.Services.TextProcessor.html
-  name: TextProcessor
-  nameWithType: TextProcessor
-  fullName: Azorian.Services.TextProcessor
+  href: Azorian.Services.IUserService.html
+  name: IUserService
+  nameWithType: IUserService
+  fullName: Azorian.Services.IUserService
+- uid: Azorian.Services.TokenService
+  commentId: T:Azorian.Services.TokenService
+  parent: Azorian.Services
+  href: Azorian.Services.TokenService.html
+  name: TokenService
+  nameWithType: TokenService
+  fullName: Azorian.Services.TokenService
 - uid: Azorian.Services
   commentId: N:Azorian.Services
   href: Azorian.html

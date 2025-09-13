@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Controllers/WeatherForecastController.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: WeatherForecastController
     path: Controllers/WeatherForecastController.cs
@@ -33,23 +33,23 @@ items:
 
     Attributes: <code>ApiController</code> (marks this class as an API controller),
 
-    <code>Route("[controller]")</code> (maps route prefix based on controller name).<br />
+    <code>Route("1/[controller]")</code> (maps route prefix based on controller name).<br />
 
     Routes for this controller:
 
-    <pre><code class="lang-csharp">GET http://localhost:5197/WeatherForecast</code></pre>
+    <pre><code class="lang-csharp">GET http://localhost:5197/1/WeatherForecast</code></pre>
   example: []
   syntax:
     content: >-
       [ApiController]
 
-      [Route("[controller]")]
+      [Route("1/[controller]")]
 
       public class WeatherForecastController : ControllerBase
     content.vb: >-
       <ApiController>
 
-      <Route("[controller]")>
+      <Route("1/[controller]")>
 
       Public Class WeatherForecastController Inherits ControllerBase
   inheritance:
@@ -246,7 +246,7 @@ items:
     ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: '[controller]'
+      value: 1/[controller]
 - uid: Azorian.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{Azorian.Controllers.WeatherForecastController})
   commentId: M:Azorian.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{Azorian.Controllers.WeatherForecastController})
   id: '#ctor(Microsoft.Extensions.Logging.ILogger{Azorian.Controllers.WeatherForecastController})'
@@ -261,7 +261,7 @@ items:
   source:
     remote:
       path: Controllers/WeatherForecastController.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: .ctor
     path: Controllers/WeatherForecastController.cs
@@ -296,7 +296,7 @@ items:
   source:
     remote:
       path: Controllers/WeatherForecastController.cs
-      branch: DB-setup
+      branch: add-users
       repo: git@github.com:nathanielsiddall/Azorian.git
     id: Get
     path: Controllers/WeatherForecastController.cs
@@ -304,7 +304,7 @@ items:
   assemblies:
   - Azorian
   namespace: Azorian.Controllers
-  summary: Handles GET requests to <code>/WeatherForecast</code>.
+  summary: Handles GET requests to <code>/1/WeatherForecast</code>.
   remarks: >-
     Behavior:
 
@@ -314,7 +314,7 @@ items:
 
     Example request:
 
-    <pre><code class="lang-csharp">GET http://localhost:5197/WeatherForecast</code></pre>
+    <pre><code class="lang-csharp">GET http://localhost:5197/1/WeatherForecast</code></pre>
 
 
     Example response:

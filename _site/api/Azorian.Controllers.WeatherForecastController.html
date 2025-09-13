@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/nathanielsiddall/Azorian/new/DB-setup/apiSpec/new?filename=Azorian_Controllers_WeatherForecastController.md&amp;value=---%0Auid%3A%20Azorian.Controllers.WeatherForecastController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/nathanielsiddall/Azorian/new/add-users/apiSpec/new?filename=Azorian_Controllers_WeatherForecastController.md&amp;value=---%0Auid%3A%20Azorian.Controllers.WeatherForecastController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Azorian_Controllers_WeatherForecastController" data-uid="Azorian.Controllers.WeatherForecastController" class="text-break">
-Class WeatherForecastController  <a class="header-action link-secondary" title="View source" href="https://github.com/nathanielsiddall/Azorian/blob/DB-setup/Controllers/WeatherForecastController.cs/#L16"><i class="bi bi-code-slash"></i></a>
+Class WeatherForecastController  <a class="header-action link-secondary" title="View source" href="https://github.com/nathanielsiddall/Azorian/blob/add-users/Controllers/WeatherForecastController.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -103,7 +103,7 @@ Class WeatherForecastController  <a class="header-action link-secondary" title="
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ApiController]
-[Route(&quot;[controller]&quot;)]
+[Route(&quot;1/[controller]&quot;)]
 public class WeatherForecastController : ControllerBase</code></pre>
   </div>
 
@@ -679,9 +679,9 @@ public class WeatherForecastController : ControllerBase</code></pre>
   <div class="markdown level0 remarks"><p>Namespace: <code>Azorian.Controllers</code><br>
 Inheritance: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controllerbase">ControllerBase</a><br>
 Attributes: <code>ApiController</code> (marks this class as an API controller),
-<code>Route(&quot;[controller]&quot;)</code> (maps route prefix based on controller name).<br>
+<code>Route(&quot;1/[controller]&quot;)</code> (maps route prefix based on controller name).<br>
 Routes for this controller:</p>
-<pre><code class="lang-csharp">GET http://localhost:5197/WeatherForecast</code></pre>
+<pre><code class="lang-csharp">GET http://localhost:5197/1/WeatherForecast</code></pre>
 </div>
 
 
@@ -693,7 +693,7 @@ Routes for this controller:</p>
 
   <h3 id="Azorian_Controllers_WeatherForecastController__ctor_Microsoft_Extensions_Logging_ILogger_Azorian_Controllers_WeatherForecastController__" data-uid="Azorian.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{Azorian.Controllers.WeatherForecastController})">
   WeatherForecastController(ILogger&lt;WeatherForecastController&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/nathanielsiddall/Azorian/blob/DB-setup/Controllers/WeatherForecastController.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/nathanielsiddall/Azorian/blob/add-users/Controllers/WeatherForecastController.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Azorian.Controllers.WeatherForecastController.html">WeatherForecastController</a> class.</p>
@@ -730,10 +730,10 @@ Routes for this controller:</p>
 
   <h3 id="Azorian_Controllers_WeatherForecastController_Get" data-uid="Azorian.Controllers.WeatherForecastController.Get">
   Get()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/nathanielsiddall/Azorian/blob/DB-setup/Controllers/WeatherForecastController.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/nathanielsiddall/Azorian/blob/add-users/Controllers/WeatherForecastController.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Handles GET requests to <code>/WeatherForecast</code>.</p>
+  <div class="markdown level1 summary"><p>Handles GET requests to <code>/1/WeatherForecast</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -762,7 +762,7 @@ public IEnumerable&lt;WeatherForecast&gt; Get()</code></pre>
     <ul><li><code>Date</code> – a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a> for the forecasted day.</li><li><code>TemperatureC</code> – randomized Celsius temperature between -20 and 55.</li><li><code>Summary</code> – a random descriptive summary from <span class="xref">Azorian.Controllers.WeatherForecastController.Summaries</span>.</li></ul>
   </li></ul>
 <p>Example request:</p>
-<pre><code class="lang-csharp">GET http://localhost:5197/WeatherForecast</code></pre>
+<pre><code class="lang-csharp">GET http://localhost:5197/1/WeatherForecast</code></pre>
 <p>Example response:</p>
 <pre><code class="lang-json">[
   { "date": "2025-09-14", "temperatureC": 25, "summary": "Warm" },
@@ -777,7 +777,7 @@ public IEnumerable&lt;WeatherForecast&gt; Get()</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/nathanielsiddall/Azorian/blob/DB-setup/Controllers/WeatherForecastController.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/nathanielsiddall/Azorian/blob/add-users/Controllers/WeatherForecastController.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -9,12 +9,12 @@ namespace Azorian.Controllers;
 /// Namespace: <c>Azorian.Controllers</c><br/>
 /// Inheritance: <see cref="ControllerBase"/><br/>
 /// Attributes: <c>ApiController</c> (marks this class as an API controller),
-/// <c>Route("[controller]")</c> (maps route prefix based on controller name).<br/>
+/// <c>Route("1/[controller]")</c> (maps route prefix based on controller name).<br/>
 /// Routes for this controller:
-/// <code>GET http://localhost:5197/WeatherForecast</code>
+/// <code>GET http://localhost:5197/1/WeatherForecast</code>
 /// </remarks>
 [ApiController]
-[Route("[controller]")]
+[Route("1/[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     /// <summary>
@@ -56,7 +56,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     /// <summary>
-    /// Handles GET requests to <c>/WeatherForecast</c>.
+    /// Handles GET requests to <c>/1/WeatherForecast</c>.
     /// </summary>
     /// <returns>
     /// A collection of <see cref="WeatherForecast"/> objects for the next five days.
@@ -75,7 +75,7 @@ public class WeatherForecastController : ControllerBase
     /// </list>
     ///
     /// Example request:
-    /// <code>GET http://localhost:5197/WeatherForecast</code>
+    /// <code>GET http://localhost:5197/1/WeatherForecast</code>
     ///
     /// Example response:
     /// <code language="json">

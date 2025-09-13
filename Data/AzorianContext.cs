@@ -1,3 +1,4 @@
+using Azorian.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Azorian.Data;
@@ -15,5 +16,8 @@ public class AzorianContext : DbContext
     {
     }
 
-    // Add DbSet<T> properties for your entities here in the future.
+    /// <summary>
+    /// Gets or sets user accounts.
+    /// </summary>
+    public DbSet<User> Users => Set<User>();
 }

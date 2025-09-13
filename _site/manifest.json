@@ -22,6 +22,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Controllers.AuthController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Controllers.AuthController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Controllers.AuthController",
+      "Summary": "<p sourcefile=\"api/Azorian.Controllers.AuthController.yml\" sourcestartlinenumber=\"1\">Authentication endpoints for registering and logging in users.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Azorian.Controllers.TextController.yml",
       "output": {
         ".html": {
@@ -33,6 +47,20 @@
       "IsMRef": true,
       "Title": "Azorian.Controllers.TextController",
       "Summary": "<p sourcefile=\"api/Azorian.Controllers.TextController.yml\" sourcestartlinenumber=\"1\">API controller for text processing operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Controllers.UsersController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Controllers.UsersController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Controllers.UsersController",
+      "Summary": "<p sourcefile=\"api/Azorian.Controllers.UsersController.yml\" sourcestartlinenumber=\"1\">BREAD operations for user accounts.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -78,6 +106,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Data.Migrations.AddBanSuspendFields.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Data.Migrations.AddBanSuspendFields.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Data.Migrations.AddBanSuspendFields",
+      "Summary": "<p sourcefile=\"api/Azorian.Data.Migrations.AddBanSuspendFields.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Data.Migrations.CreateUsers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Data.Migrations.CreateUsers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Data.Migrations.CreateUsers",
+      "Summary": "<p sourcefile=\"api/Azorian.Data.Migrations.CreateUsers.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Data.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Data.Migrations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Data.Migrations",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Azorian.Data.yml",
       "output": {
         ".html": {
@@ -89,6 +159,34 @@
       "IsMRef": true,
       "Title": "Azorian.Data",
       "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.LoginRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.LoginRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.LoginRequest",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.LoginRequest.yml\" sourcestartlinenumber=\"1\">Login request payload.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.RegisterRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.RegisterRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.RegisterRequest",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.RegisterRequest.yml\" sourcestartlinenumber=\"1\">Registration request payload.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -120,6 +218,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.User.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.User",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.User.yml\" sourcestartlinenumber=\"1\">Application user entity.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.UserCredentials.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.UserCredentials.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.UserCredentials",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.UserCredentials.yml\" sourcestartlinenumber=\"1\">Represents user credentials submitted for registration or authentication.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.UserDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.UserDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.UserDto",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.UserDto.yml\" sourcestartlinenumber=\"1\">Data transfer object returned from user-related endpoints.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Models.UserStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Models.UserStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Models.UserStatus",
+      "Summary": "<p sourcefile=\"api/Azorian.Models.UserStatus.yml\" sourcestartlinenumber=\"1\">Represents the status of a user account.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Azorian.Models.yml",
       "output": {
         ".html": {
@@ -134,6 +288,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Services.IUserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Services.IUserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Services.IUserService",
+      "Summary": "<p sourcefile=\"api/Azorian.Services.IUserService.yml\" sourcestartlinenumber=\"1\">Defines operations for managing application users.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Services.InMemoryUserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Services.InMemoryUserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Services.InMemoryUserService",
+      "Summary": "<p sourcefile=\"api/Azorian.Services.InMemoryUserService.yml\" sourcestartlinenumber=\"1\">Provides an in-memory implementation of <xref href=\"Azorian.Services.IUserService\" data-throw-if-not-resolved=\"false\"></xref>.\nThis implementation is intended for demo or testing purposes only.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Azorian.Services.TextProcessor.yml",
       "output": {
         ".html": {
@@ -145,6 +327,20 @@
       "IsMRef": true,
       "Title": "Azorian.Services.TextProcessor",
       "Summary": "<p sourcefile=\"api/Azorian.Services.TextProcessor.yml\" sourcestartlinenumber=\"1\">Provides text manipulation utilities.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Azorian.Services.TokenService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Azorian.Services.TokenService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Azorian.Services.TokenService",
+      "Summary": "<p sourcefile=\"api/Azorian.Services.TokenService.yml\" sourcestartlinenumber=\"1\">Generates JSON Web Tokens for authenticated users.</p>\n"
     },
     {
       "type": "ManagedReference",
