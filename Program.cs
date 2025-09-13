@@ -1,6 +1,10 @@
 using Azorian.Data;
+using Azorian.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 /// <summary>
 /// Entry point for the Azorian web application.
@@ -27,6 +31,24 @@ public class Program
 
         // Add MVC controllers
         builder.Services.AddControllers();
+
+        // Configure authentication and authorization
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+                };
+            });
+        builder.Services.AddAuthorization();
+        builder.Services.AddScoped<TokenService>();
 
         // Configure EF Core with PostgreSQL
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
@@ -76,6 +98,7 @@ public class Program
             app.UseHttpsRedirection();
         }
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         // Map attribute-routed controllers
