@@ -38,9 +38,11 @@ public class User
     /// <summary>Date the user was last updated.</summary>
     public DateTime? UpdatedAt { get; set; }
 
-    /// <summary>User role for authorization.</summary>
-    [MaxLength(50)]
-    public string Role { get; set; } = "User";
+    /// <summary>Identifier of the assigned role, if any.</summary>
+    public Guid? RoleId { get; set; }
+
+    /// <summary>Navigation property for the user's role.</summary>
+    public Role? Role { get; set; }
 
     /// <summary>Account status.</summary>
     public UserStatus Status { get; set; } = UserStatus.Active;

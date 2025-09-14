@@ -53,7 +53,6 @@ public class AuthController : ControllerBase
             FirstName = request.FirstName,
             LastName = request.LastName,
             CreatedAt = DateTime.UtcNow,
-            Role = "User",
             Status = UserStatus.Active
         };
 
@@ -75,7 +74,7 @@ public class AuthController : ControllerBase
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<ActionResult<string>> Login(LoginRequest request)
     {
-        var user = await _context.Users.SingleOrDefaultAsync(u => u.Email == request.Email);
+        var user = await _context.Users.Include(u => u.Role).SingleOrDefaultAsync(u => u.Email == request.Email);
         if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
         {
             return Unauthorized("Invalid credentials");

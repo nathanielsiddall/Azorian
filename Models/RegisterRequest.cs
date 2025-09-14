@@ -28,4 +28,7 @@ public class RegisterRequest
     /// <summary>Last name.</summary>
     [MaxLength(100)]
     public string LastName { get; set; } = string.Empty;
+
+    /// <summary>Optional role assignment.</summary>
+    public Guid? RoleId { get; set; }
 }
