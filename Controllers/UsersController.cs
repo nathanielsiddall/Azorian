@@ -34,7 +34,7 @@ public class UsersController : ControllerBase
     [ProducesResponseType(typeof(IEnumerable<User>), StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<User>>> Browse()
     {
-        return await _context.Users.ToListAsync();
+        return await _context.Users.Include(u => u.Role).ToListAsync();
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public class UsersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<User>> Read(Guid id)
     {
-        var user = await _context.Users.FindAsync(id);
+        var user = await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Id == id);
         if (user == null)
         {
             return NotFound();
@@ -75,11 +75,12 @@ public class UsersController : ControllerBase
             FirstName = request.FirstName,
             LastName = request.LastName,
             CreatedAt = DateTime.UtcNow,
-            Role = "User",
+            RoleId = request.RoleId,
             Status = UserStatus.Active
         };
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
+        await _context.Entry(user).Reference(u => u.Role).LoadAsync();
         return CreatedAtAction(nameof(Read), new { id = user.Id }, user);
     }
 
@@ -104,7 +105,7 @@ public class UsersController : ControllerBase
         user.Email = update.Email;
         user.FirstName = update.FirstName;
         user.LastName = update.LastName;
-        user.Role = update.Role;
+        user.RoleId = update.RoleId;
         user.Status = update.Status;
         user.UpdatedAt = DateTime.UtcNow;
 
