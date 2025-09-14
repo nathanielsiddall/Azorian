@@ -1,6 +1,7 @@
 using Azorian.Models;
 using Azorian.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Azorian.Controllers;
 
@@ -47,9 +48,38 @@ public class UsersController : ControllerBase
     /// Creates a new user without any roles.
     /// </summary>
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<User>> CreateUser(User user)
     {
-        var created = await _userService.CreateUserAsync(user);
+        var created = await _userService.CreateUserAsync(user, null); // Replace null with authenticated user id when auth is implemented
         return CreatedAtAction(nameof(GetUser), new { id = created.Id }, created);
+    }
+
+    /// <summary>
+    /// Updates an existing user. Admin only.
+    /// </summary>
+    [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<ActionResult<User>> UpdateUser(int id, User user)
+    {
+        if (id != user.Id)
+            return BadRequest();
+        var updated = await _userService.UpdateUserAsync(user, null);
+        if (updated == null)
+            return NotFound();
+        return Ok(updated);
+    }
+
+    /// <summary>
+    /// Deletes a user. Admin only.
+    /// </summary>
+    [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> DeleteUser(int id)
+    {
+        var result = await _userService.DeleteUserAsync(id, null);
+        if (!result)
+            return NotFound();
+        return NoContent();
     }
 }
