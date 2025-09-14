@@ -1,3 +1,4 @@
+using Azorian.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Azorian.Data;
@@ -15,5 +16,43 @@ public class AzorianContext : DbContext
     {
     }
 
-    // Add DbSet<T> properties for your entities here in the future.
+    /// <summary>
+    /// Users in the system.
+    /// </summary>
+    public DbSet<User> Users => Set<User>();
+
+    /// <summary>
+    /// Roles available in the system.
+    /// </summary>
+    public DbSet<Role> Roles => Set<Role>();
+
+    /// <summary>
+    /// Join table between users and roles.
+    /// </summary>
+    public DbSet<UserRole> UserRoles => Set<UserRole>();
+
+    /// <summary>
+    /// Audit log entries for role operations.
+    /// </summary>
+    public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+
+    /// <inheritdoc />
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<UserRole>().HasKey(ur => new { ur.UserId, ur.RoleId });
+        modelBuilder.Entity<UserRole>()
+            .HasOne(ur => ur.User)
+            .WithMany(u => u.UserRoles)
+            .HasForeignKey(ur => ur.UserId);
+        modelBuilder.Entity<UserRole>()
+            .HasOne(ur => ur.Role)
+            .WithMany(r => r.UserRoles)
+            .HasForeignKey(ur => ur.RoleId);
+
+        modelBuilder.Entity<Role>()
+            .HasIndex(r => r.Name)
+            .IsUnique();
+    }
 }
