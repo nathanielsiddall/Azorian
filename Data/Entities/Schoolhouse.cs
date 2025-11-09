@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -31,6 +32,7 @@ namespace Azorian.Data
 
         public ICollection<SchoolhouseStaff> Staff { get; set; }
         public ICollection<SchoolhouseMedia> Media { get; set; }
+        public ICollection<Class> Classes { get; set; }
 
     }
 
