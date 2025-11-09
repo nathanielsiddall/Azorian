@@ -15,6 +15,7 @@ namespace Azorian.Data
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
+        public Class Class { get; set; }
         public MediaAsset MediaAsset { get; set; }
     }
 
@@ -23,6 +24,11 @@ namespace Azorian.Data
         public void Configure(EntityTypeBuilder<ClassMedia> entity)
         {
             entity.HasKey(e => e.Id);
+
+            entity.HasOne(e => e.Class)
+                .WithMany(c => c.Media)
+                .HasForeignKey(e => e.ClassId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             entity.HasOne(e => e.MediaAsset)
                 .WithMany(m => m.ClassMedia)
