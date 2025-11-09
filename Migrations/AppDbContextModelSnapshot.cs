@@ -22,6 +22,56 @@ namespace Azorian.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Azorian.Data.Class", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("EndDateTimeUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsPublished")
+                        .HasColumnType("boolean");
+
+                    b.Property<decimal>("PricePerSeat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("SchoolhouseId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime>("StartDateTimeUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SchoolhouseId", "Slug")
+                        .IsUnique();
+
+                    b.ToTable("Classes");
+                });
+
             modelBuilder.Entity("Azorian.Data.ClassMedia", b =>
                 {
                     b.Property<Guid>("Id")
@@ -50,6 +100,8 @@ namespace Azorian.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClassId");
 
                     b.HasIndex("MediaAssetId");
 
@@ -429,13 +481,32 @@ namespace Azorian.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Azorian.Data.Class", b =>
+                {
+                    b.HasOne("Azorian.Data.Schoolhouse", "Schoolhouse")
+                        .WithMany("Classes")
+                        .HasForeignKey("SchoolhouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Schoolhouse");
+                });
+
             modelBuilder.Entity("Azorian.Data.ClassMedia", b =>
                 {
+                    b.HasOne("Azorian.Data.Class", "Class")
+                        .WithMany("Media")
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Azorian.Data.MediaAsset", "MediaAsset")
                         .WithMany("ClassMedia")
                         .HasForeignKey("MediaAssetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Class");
 
                     b.Navigation("MediaAsset");
                 });
@@ -530,6 +601,11 @@ namespace Azorian.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Azorian.Data.Class", b =>
+                {
+                    b.Navigation("Media");
+                });
+
             modelBuilder.Entity("Azorian.Data.InstructorProfile", b =>
                 {
                     b.Navigation("Media");
@@ -546,6 +622,8 @@ namespace Azorian.Migrations
 
             modelBuilder.Entity("Azorian.Data.Schoolhouse", b =>
                 {
+                    b.Navigation("Classes");
+
                     b.Navigation("Media");
 
                     b.Navigation("Staff");
