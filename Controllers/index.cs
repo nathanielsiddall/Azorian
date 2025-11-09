@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Azorian.Controllers;
 
 [Route("/")]
-public class IndexController : Controller
+[ApiController]
+public class IndexController : ControllerBase
 {
-    public string Get() => "Hello World";
+    [HttpGet]
+    public ActionResult<string> Get() => "Hello World";
 }
