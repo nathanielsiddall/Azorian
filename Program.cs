@@ -1,4 +1,6 @@
 using Azorian.Data;
+using Azorian.Domain.Services;
+using Azorian.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -21,6 +23,9 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddDbContext<AppDbContext>(o =>
     o.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentSchoolhouseContext, CurrentSchoolhouseContext>();
 
 var app = builder.Build();
 

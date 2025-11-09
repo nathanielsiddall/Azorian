@@ -26,9 +26,14 @@ public class PublicSchoolhouseController : ControllerBase
     [HttpGet("index")]
     public async Task<ActionResult<PublicSchoolhouseIndexResponse>> GetIndex(CancellationToken cancellationToken)
     {
+        if (currentSchoolhouseContext.SchoolhouseId is not Guid schoolhouseId)
+        {
+            return NotFound();
+        }
+
         var schoolhouse = await dbContext.Schoolhouses
             .AsNoTracking()
-            .Where(s => s.Id == currentSchoolhouseContext.SchoolhouseId)
+            .Where(s => s.Id == schoolhouseId)
             .Select(s => new PublicSchoolhouseInfoDto(
                 s.Id,
                 s.Name,
@@ -122,9 +127,14 @@ public class PublicSchoolhouseController : ControllerBase
     [HttpGet("instructors")]
     public async Task<ActionResult<PublicSchoolhouseInstructorsResponse>> GetInstructors(CancellationToken cancellationToken)
     {
+        if (currentSchoolhouseContext.SchoolhouseId is not Guid schoolhouseId)
+        {
+            return NotFound();
+        }
+
         var schoolhouseExists = await dbContext.Schoolhouses
             .AsNoTracking()
-            .AnyAsync(s => s.Id == currentSchoolhouseContext.SchoolhouseId, cancellationToken);
+            .AnyAsync(s => s.Id == schoolhouseId, cancellationToken);
 
         if (!schoolhouseExists)
         {
@@ -133,7 +143,7 @@ public class PublicSchoolhouseController : ControllerBase
 
         var instructors = await dbContext.InstructorProfiles
             .AsNoTracking()
-            .Where(profile => dbContext.SchoolhouseStaff.Any(staff => staff.SchoolhouseId == currentSchoolhouseContext.SchoolhouseId && staff.StaffRole == StaffRole.Instructor && staff.IsActive && staff.UserId == profile.UserId))
+            .Where(profile => dbContext.SchoolhouseStaff.Any(staff => staff.SchoolhouseId == schoolhouseId && staff.StaffRole == StaffRole.Instructor && staff.IsActive && staff.UserId == profile.UserId))
             .Select(profile => new PublicInstructorDto(
                 profile.Id,
                 profile.DisplayName,
@@ -165,9 +175,14 @@ public class PublicSchoolhouseController : ControllerBase
     [HttpGet("classes")]
     public async Task<ActionResult<PublicSchoolhouseClassesResponse>> GetClasses([FromQuery] bool futureOnly, CancellationToken cancellationToken)
     {
+        if (currentSchoolhouseContext.SchoolhouseId is not Guid schoolhouseId)
+        {
+            return NotFound();
+        }
+
         var schoolhouseExists = await dbContext.Schoolhouses
             .AsNoTracking()
-            .AnyAsync(s => s.Id == currentSchoolhouseContext.SchoolhouseId, cancellationToken);
+            .AnyAsync(s => s.Id == schoolhouseId, cancellationToken);
 
         if (!schoolhouseExists)
         {
@@ -176,7 +191,7 @@ public class PublicSchoolhouseController : ControllerBase
 
         var query = dbContext.Classes
             .AsNoTracking()
-            .Where(c => c.SchoolhouseId == currentSchoolhouseContext.SchoolhouseId && c.IsPublished);
+            .Where(c => c.SchoolhouseId == schoolhouseId && c.IsPublished);
 
         if (futureOnly)
         {
@@ -202,9 +217,14 @@ public class PublicSchoolhouseController : ControllerBase
     [HttpGet("about")]
     public async Task<ActionResult<PublicSchoolhouseAboutResponse>> GetAbout(CancellationToken cancellationToken)
     {
+        if (currentSchoolhouseContext.SchoolhouseId is not Guid schoolhouseId)
+        {
+            return NotFound();
+        }
+
         var schoolhouse = await dbContext.Schoolhouses
             .AsNoTracking()
-            .Where(s => s.Id == currentSchoolhouseContext.SchoolhouseId)
+            .Where(s => s.Id == schoolhouseId)
             .Select(s => new { s.Id, s.LongDescription })
             .SingleOrDefaultAsync(cancellationToken);
 
