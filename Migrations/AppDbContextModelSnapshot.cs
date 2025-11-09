@@ -22,6 +22,176 @@ namespace Azorian.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Azorian.Data.ClassMedia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ClassId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsVisibleToEnrolledOnly")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsVisibleToPublic")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("MediaAssetId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MediaAssetId");
+
+                    b.ToTable("ClassMedia");
+                });
+
+            modelBuilder.Entity("Azorian.Data.InstructorMedia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("InstructorProfileId")
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("IsVisibleOnPublicInstructorPage")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsVisibleOnSchoolhousePage")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("MediaAssetId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InstructorProfileId");
+
+                    b.HasIndex("MediaAssetId");
+
+                    b.ToTable("InstructorMedia");
+                });
+
+            modelBuilder.Entity("Azorian.Data.InstructorProfile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("PhotoUrl")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PublicContactEmail")
+                        .IsRequired()
+                        .HasMaxLength(320)
+                        .HasColumnType("character varying(320)");
+
+                    b.Property<string>("PublicContactPhone")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("InstructorProfiles");
+                });
+
+            modelBuilder.Entity("Azorian.Data.MediaAsset", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
+
+                    b.Property<long>("FileSizeBytes")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("MediaType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("MimeType")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
+
+                    b.Property<Guid>("OwnerUserId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("StoragePath")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerUserId");
+
+                    b.ToTable("MediaAssets");
+                });
+
             modelBuilder.Entity("Azorian.Data.Schoolhouse", b =>
                 {
                     b.Property<Guid>("Id")
@@ -130,6 +300,74 @@ namespace Azorian.Migrations
                     b.ToTable("Schoolhouses");
                 });
 
+            modelBuilder.Entity("Azorian.Data.SchoolhouseMedia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsVisibleOnPublicSite")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("MediaAssetId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SchoolhouseId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MediaAssetId");
+
+                    b.HasIndex("SchoolhouseId");
+
+                    b.ToTable("SchoolhouseMedia");
+                });
+
+            modelBuilder.Entity("Azorian.Data.SchoolhouseStaff", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("SchoolhouseId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("StaffRole")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SchoolhouseId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SchoolhouseStaff");
+                });
+
             modelBuilder.Entity("Azorian.Data.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -144,7 +382,8 @@ namespace Azorian.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(320)
+                        .HasColumnType("character varying(320)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -162,7 +401,8 @@ namespace Azorian.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Phone")
                         .HasColumnType("text");
@@ -174,13 +414,71 @@ namespace Azorian.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("UserRole")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Azorian.Data.ClassMedia", b =>
+                {
+                    b.HasOne("Azorian.Data.MediaAsset", "MediaAsset")
+                        .WithMany("ClassMedia")
+                        .HasForeignKey("MediaAssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MediaAsset");
+                });
+
+            modelBuilder.Entity("Azorian.Data.InstructorMedia", b =>
+                {
+                    b.HasOne("Azorian.Data.InstructorProfile", "InstructorProfile")
+                        .WithMany("Media")
+                        .HasForeignKey("InstructorProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Azorian.Data.MediaAsset", "MediaAsset")
+                        .WithMany("InstructorMedia")
+                        .HasForeignKey("MediaAssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("InstructorProfile");
+
+                    b.Navigation("MediaAsset");
+                });
+
+            modelBuilder.Entity("Azorian.Data.InstructorProfile", b =>
+                {
+                    b.HasOne("Azorian.Data.User", "User")
+                        .WithOne("InstructorProfile")
+                        .HasForeignKey("Azorian.Data.InstructorProfile", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Azorian.Data.MediaAsset", b =>
+                {
+                    b.HasOne("Azorian.Data.User", "OwnerUser")
+                        .WithMany("MediaAssets")
+                        .HasForeignKey("OwnerUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("OwnerUser");
                 });
 
             modelBuilder.Entity("Azorian.Data.Schoolhouse", b =>
@@ -192,6 +490,75 @@ namespace Azorian.Migrations
                         .IsRequired();
 
                     b.Navigation("CreatedByUser");
+                });
+
+            modelBuilder.Entity("Azorian.Data.SchoolhouseMedia", b =>
+                {
+                    b.HasOne("Azorian.Data.MediaAsset", "MediaAsset")
+                        .WithMany("SchoolhouseMedia")
+                        .HasForeignKey("MediaAssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Azorian.Data.Schoolhouse", "Schoolhouse")
+                        .WithMany("Media")
+                        .HasForeignKey("SchoolhouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MediaAsset");
+
+                    b.Navigation("Schoolhouse");
+                });
+
+            modelBuilder.Entity("Azorian.Data.SchoolhouseStaff", b =>
+                {
+                    b.HasOne("Azorian.Data.Schoolhouse", "Schoolhouse")
+                        .WithMany("Staff")
+                        .HasForeignKey("SchoolhouseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Azorian.Data.User", "User")
+                        .WithMany("SchoolhouseStaff")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Schoolhouse");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Azorian.Data.InstructorProfile", b =>
+                {
+                    b.Navigation("Media");
+                });
+
+            modelBuilder.Entity("Azorian.Data.MediaAsset", b =>
+                {
+                    b.Navigation("ClassMedia");
+
+                    b.Navigation("InstructorMedia");
+
+                    b.Navigation("SchoolhouseMedia");
+                });
+
+            modelBuilder.Entity("Azorian.Data.Schoolhouse", b =>
+                {
+                    b.Navigation("Media");
+
+                    b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("Azorian.Data.User", b =>
+                {
+                    b.Navigation("InstructorProfile")
+                        .IsRequired();
+
+                    b.Navigation("MediaAssets");
+
+                    b.Navigation("SchoolhouseStaff");
                 });
 #pragma warning restore 612, 618
         }

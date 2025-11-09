@@ -10,6 +10,13 @@ namespace Azorian.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Schoolhouse> Schoolhouses { get; set; }
+        public DbSet<SchoolhouseStaff> SchoolhouseStaff { get; set; }
+        public DbSet<InstructorProfile> InstructorProfiles { get; set; }
+
+        public DbSet<MediaAsset> MediaAssets { get; set; }
+        public DbSet<SchoolhouseMedia> SchoolhouseMedia { get; set; }
+        public DbSet<InstructorMedia> InstructorMedia { get; set; }
+        public DbSet<ClassMedia> ClassMedia { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

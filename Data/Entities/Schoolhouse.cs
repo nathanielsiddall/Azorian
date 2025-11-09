@@ -28,6 +28,10 @@ namespace Azorian.Data
         public User CreatedByUser { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
+        public ICollection<SchoolhouseStaff> Staff { get; set; }
+        public ICollection<SchoolhouseMedia> Media { get; set; }
+
     }
 
     public class SchoolhouseConfiguration : IEntityTypeConfiguration<Schoolhouse>
