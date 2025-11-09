@@ -19,11 +19,11 @@ public class CurrentSchoolhouseContext : ICurrentSchoolhouseContext
         _httpContextAccessor = httpContextAccessor;
     }
 
-    public Guid SchoolhouseId => Schoolhouse.Id;
+    public Guid? SchoolhouseId => Schoolhouse?.Id;
 
-    public Schoolhouse Schoolhouse => _schoolhouse ??= ResolveSchoolhouse();
+    public Schoolhouse? Schoolhouse => _schoolhouse ??= ResolveSchoolhouse();
 
-    private Schoolhouse ResolveSchoolhouse()
+    private Schoolhouse? ResolveSchoolhouse()
     {
         var slug = GetSchoolhouseSlugFromRequest();
 
@@ -38,13 +38,7 @@ public class CurrentSchoolhouseContext : ICurrentSchoolhouseContext
             }
         }
 
-        var schoolhouse = query.OrderBy(s => s.Name).FirstOrDefault();
-        if (schoolhouse == null)
-        {
-            throw new InvalidOperationException("No schoolhouse is configured.");
-        }
-
-        return schoolhouse;
+        return query.OrderBy(s => s.Name).FirstOrDefault();
     }
 
     private string? GetSchoolhouseSlugFromRequest()

@@ -5,6 +5,6 @@ namespace Azorian.Domain.Services;
 
 public interface ICurrentSchoolhouseContext
 {
-    Guid SchoolhouseId { get; }
-    Schoolhouse Schoolhouse { get; }
+    Guid? SchoolhouseId { get; }
+    Schoolhouse? Schoolhouse { get; }
 }
